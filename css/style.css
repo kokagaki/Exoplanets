@@ -1,0 +1,262 @@
+
+/**
+ **
+ ** Hunter Simmons - cs171 Midterm
+ **
+ **/
+
+
+
+/*---------------*/
+/*    Global     */
+/*---------------*/
+
+html {
+    height: auto;
+}
+
+body {
+    color: rgb(150,150,150);
+    margin: 0;
+}
+
+hr {
+    border: 0 none;
+    width: 60%;
+    background-color: gray;
+    color: black;
+    height: 2px
+}
+
+/*#title_bar{
+    background-color: black;
+    font-family: "Avenir Next Condensed";
+    color: dimgray;
+    text-opacity: .8;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}*/
+
+.intro_block {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.full_block {
+    padding-top: 30vh;
+}
+
+.parallax_container{
+    min-height: 100vh;
+    background: transparent;
+}
+
+.parallax_container_end{
+    min-height: 550px;
+    background: transparent;
+}
+
+#billions {
+    height: 100vh;
+    color: white;
+    background-color: black;
+    text-align: center;
+    font-size: 3em;
+    font-family: "Avenir Next Condensed";
+}
+
+#arewealone {
+    text-align: center;
+    font-size: 3em;
+    font-family: "Avenir Next Condensed";
+
+}
+
+.section {
+    background-color: black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: 650px;
+}
+
+.text_content {
+    font-size: 2em;
+    font-family: "Avenir Next Condensed";
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#earth_pic {
+    width: 350px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+}
+
+#earth_content {
+    padding-top: 40px;
+}
+
+
+#earthlikes_pic {
+    width: 600px;
+    padding-top: 30px;
+}
+
+#earthlike_content {
+    padding-top: 50px;
+}
+
+
+#explore_content {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+#explore_pic {
+    width: 600px;
+}
+
+
+#future_content {
+    padding-top: 30px;
+}
+
+#future_pic {
+    width: 600px;
+    padding-top: 30px;
+}
+
+
+@media (max-width: 810px) {
+    #billions {
+        font-size: 2em;
+    }
+    .section{
+        height: 550px;
+    }
+    .text_content {
+        font-size: 1.5em;
+    }
+    #earth_pic {
+        width: 250px;
+    }
+    #earthlikes_pic {
+        width: 450px;
+    }
+    #explore_pic {
+        width: 450px;
+    }
+    #future_pic {
+        width: 450px;
+    }
+}
+
+
+
+.vis1 {
+    text-align: center;
+    font-family: "Avenir Next Condensed";
+    font-size: 3em;
+    background-color: black;
+    padding-top: 200px;
+}
+
+
+
+.vis1 {
+    text-align: center;
+    font-family: "Avenir Next Condensed";
+    font-size: 3em;
+    background-color: black;
+    padding-top: 50px;
+}
+
+#radial-chart {
+    height: 800px;
+}
+
+.legend {
+    font-size: 12px;
+    font-weight: lighter;
+}
+/*********************/
+/*  TOOLTIP OVERLAY  */
+/*********************/
+
+.tooltip-title {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(200, 200, 200, 0.8);
+    color: rgb(50,50,50);
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+#date-range h5 {
+    text-align: center;
+}
+
+/****************/
+/*  LINE CHART  */
+/****************/
+body {
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    fill:white;
+    font-size: 11px;
+}
+
+.line {
+    fill: none;
+    stroke: #1C9A3D;
+    stroke-width: 1.5px;
+}
+
+.tooltip-circle {
+    fill: #96AB96;
+}
+
+#timeline-chart {
+    color:white;
+    font-size: 10px;
+    padding:0px;
+}
+
+
+
+
+

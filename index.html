@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS171 - Final Project</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div id="billions" class="full_block"> <span style="font-size: 5em"> 200 billion </span><br> <span style="color: white"> planets in the observable universe</span></div>
+
+<!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/galaxy.jpg"></div>
+
+<!-- Life on Earth -->
+<div class="section">
+  <img id="earth_pic" class="center-block" src="img/earth.jpg">
+  <div id="earth_content" class="text_content">life on earth is defined by the following attributes: <span style="color: white;"> availability of liquid water </span>, <span style="color: white;">suitable temperature range</span>, and <span style="color: white;">size</span>, which determines the composition of the planet and it's atmosphere. </div>
+</div>
+
+
+<!-- Earth-like Planets -->
+<div class="section">
+  <img id="earthlikes_pic" class="center-block" src="img/earthlikes.jpg">
+  <div id="earthlike_content" class="text_content"><span style="color: white;">"earth-like planets"</span> have the characteristics to support life.  To our knowledge, researches have proposed that there are approximately <span style="color: white;">4000</span> of these planets in the universe, each of which could host life.</div>
+</div>
+
+<!-- Exploration -->
+<div class="section">
+  <img id="explore_pic" class="center-block" src="img/satellite.png">
+  <div id="explore_content" class="text_content"><span style="color: white;">exploration: </span>The scope of the universe is unimaginably big.  Because of this, few models are available for the specific study of the "earth-like planets".  We aim to visualize these planets to give perspective about the possibility of life.  </div>
+</div>
+
+<!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/universe.jpg"></div>
+
+<!-- Vis 1 -->
+<div id="radial-chart" class="section vis1" onclick="radialChart.startStopVis()">
+  <h3>Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
+  <h3>Here's what they look like relative to their host stars.</h3>
+</div>
+
+<!-- Vis 2 -->
+<div class="section vis1" id="hist-vis">
+  <div class ="col-md-4"></div>
+  <div class="col-md-4">
+    <select class="form-control" id="hist-category" onchange="histVis.wrangleData()">
+      <option value="PlanetaryMassJpt">Planetary Mass</option>
+      <option value="RadiusJpt">Planetary Radius</option>
+      <option value="PeriodDays">Orbital Period</option>
+      <option value="SemiMajorAxisAU">Orbital Radius</option>
+    </select>
+    <h4 id="hist-x-label"></h4>
+  </div>
+  <div class ="col-md-4"></div>
+</div>
+
+<!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/space.jpg"></div>
+
+<!-- Future of Space Exploration -->
+<div class="section">
+  <img id="future_pic" class="center-block" src="img/future.jpg">
+  <div id="future_content" class="text_content"><span style="color: white;">the future: </span> the search for habitable planets is becoming a popular topic in space exploration.  With the advancements of modern technology, we are now discovering more exoplanets than ever.</div>
+</div>
+
+<!-- Vis 3 -->
+<div id="timeline-chart" class="section vis1">
+<button id ="updateButton" class="btn bg-primary" >Refresh</button>
+
+<div id="slider-area">
+</div>
+
+  <p>[NoUI Slider will go here (almost fully implemented]</p>
+
+<p id="event-start"></p>
+<p id="event-end"></p>
+
+</div>
+
+  <!-- Load JS libraries -->
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/queue.min.js"></script>
+  <script src="js/lib/topojson.js"></script>
+  <script src="js/lib/d3.min.js"></script>
+  <script src="js/lib/d3.tip.js"></script>
+  <script src="js/lib/d3.layout.orbit.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="js/lib/parallax.min.js"></script>
+  <script src="js/lib/nouislider.js"></script>
+
+  <script src="js/main-2.js"></script>
+  <script src="js/vis/radial-vis.js"></script>
+  <script src="js/vis/timeline-vis.js"></script>
+  <script src="js/vis/hist-vis.js"></script>
+
+
+</body>
+
+</html>
