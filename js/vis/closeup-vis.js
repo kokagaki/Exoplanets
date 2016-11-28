@@ -1,5 +1,5 @@
 /**
- * Created by kokagaki on 11/11/16.
+ * Created by bencmbrook on 11/27/16.
  */
 TimelineVis = function(_parentElement, _parentData){
     this.parentElement = _parentElement;
@@ -8,16 +8,9 @@ TimelineVis = function(_parentElement, _parentData){
     this.initVis();
 };
 
-// Date parser (https://github.com/mbostock/d3/wiki/Time-Formatting)
-var formatDate = d3.time.format("%Y");
-
-//slider
-var dateSlider = document.getElementById('slider-area');
-dateSlideCreate();
 /*
  * Initialize visualization (static content; e.g. SVG area, axes, brush component)
  */
-
 TimelineVis.prototype.initVis = function () {
     var vis = this;
 

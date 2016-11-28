@@ -18,6 +18,7 @@ html {
 body {
     color: rgb(150,150,150);
     margin: 0;
+    background-color: black;
 }
 
 hr {
@@ -255,8 +256,3 @@ body {
     font-size: 10px;
     padding:0px;
 }
-
-
-
-
-

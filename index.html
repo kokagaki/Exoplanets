@@ -46,10 +46,16 @@
   <h3>Here's what they look like relative to their host stars.</h3>
 </div>
 
+<!-- Vis 3 -->
+<div id="-vis" class="section vis1">
+  <div class="col-md-offset-4 col-md-4">
+    Select an exoplanet to learn more
+  </div>
+</div>
+
 <!-- Vis 2 -->
-<div class="section vis1" id="hist-vis">
-  <div class ="col-md-4"></div>
-  <div class="col-md-4">
+<div id="hist-vis" class="section vis1">
+  <div class="col-md-offset-4 col-md-4">
     <select class="form-control" id="hist-category" onchange="histVis.wrangleData()">
       <option value="PlanetaryMassJpt">Planetary Mass</option>
       <option value="RadiusJpt">Planetary Radius</option>
@@ -58,7 +64,6 @@
     </select>
     <h4 id="hist-x-label"></h4>
   </div>
-  <div class ="col-md-4"></div>
 </div>
 
 <!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
@@ -94,12 +99,13 @@
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="js/lib/parallax.min.js"></script>
   <script src="js/lib/nouislider.js"></script>
+  <script src="js/lib/three.min.js"></script>
 
   <script src="js/main-2.js"></script>
   <script src="js/vis/radial-vis.js"></script>
   <script src="js/vis/timeline-vis.js"></script>
   <script src="js/vis/hist-vis.js"></script>
-
+  <script src="js/vis/closeup-vis.js"></script>
 
 </body>
 
