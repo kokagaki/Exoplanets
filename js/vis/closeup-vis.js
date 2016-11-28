@@ -8,17 +8,16 @@ CloseUp = function(_parentElement, _parentData){
     this.initVis();
 };
 
+var formatDate = d3.time.format("%Y");
+
 /*
  * Initialize visualization (static content; e.g. SVG area, axes, brush component)
  */
 CloseUp.prototype.initVis = function () {
     var vis = this;
 
-    // SVG drawing area
-    vis.margin = {top: 25, right: 40, bottom: 60, left: 60};
-
-    vis.width = vis.parentElement.width() - vis.margin.left - vis.margin.right;
-    vis.height = vis.parentElement.height() - vis.margin.top - vis.margin.bottom;
+    vis.width = vis.parentElement.width();
+    vis.height = vis.parentElement.height();
 
     // Set up canvas and WebGL renderer
     vis.scene = new THREE.Scene();
@@ -54,8 +53,7 @@ CloseUp.prototype.initVis = function () {
     render();
 
     // Initialize data
-    // vis.loadData();
-
+    vis.loadData();
 };
 
 CloseUp.prototype.loadData = function () {
@@ -91,106 +89,5 @@ CloseUp.prototype.loadData = function () {
 CloseUp.prototype.updateVisualization = function () {
     var vis = this;
 
-    //domain from slider
-    //var sliderDomain =
-    vis.xDomain = dateSlider.noUiSlider.get();
 
-    //set domains of scale
-    vis.xScale.domain(vis.xDomain);
-    vis.yScale.domain([0, 1400]);
-
-    //create line chart
-    vis.line =  d3.svg.line()
-        .x(function (d) { return vis.xScale(d.key); })
-        .y(function (d) { return vis.yScale(d.values); })
-        .interpolate("cardinal");
-
-    //group for line
-    vis.lineSvg = vis.svg.append("g");
-
-    //append path
-    vis.lineSvg.append("path")
-        .attr("class", "line")
-        .attr("fill","blue");
-
-    //update line
-    vis.svg.select(".line")
-        .transition()
-        .duration(800)
-        .attr("d", vis.line(vis.data))
-        .attr("clip-path", "url(#clip)");
-
-    //draw axis
-    vis.xAxisGroup = vis.svg.append("g")
-        .attr("class", "x axis x-axis")
-        .attr("transform", "translate(0," + vis.height + ")");
-
-    vis.yAxisGroup = vis.svg.append("g")
-        .attr("class", "axis y-axis");
-
-    //update axis via class axis function
-    vis.svg.select(".x-axis")
-        .transition()                  //TRANSIITON
-        .duration(800)
-        .call(vis.xAxis);
-    vis.svg.select(".y-axis")
-        .transition()                  //TRANSIITON
-        .duration(800)
-        .call(vis.yAxis);
-
-
-    //tooltip circle
-    vis.tooltipCircle = vis.svg.selectAll("circle")
-        .data(vis.data);
-
-    //enter
-    vis.tooltipCircle.enter()
-        .append("circle")
-        .attr("class", "tooltip-circle circle")
-        .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide)
-        .attr("clip-path", "url(#clip)");
-
-    //update
-    vis.tooltipCircle.attr("r", 4)
-        .transition()
-        .duration(800)
-        .attr("cx", function (d) {
-            return vis.xScale(d.key);
-        })
-        .attr("cy", function (d) {
-            return vis.yScale(d.values);
-        });
-
-    //exit
-    vis.tooltipCircle.exit().remove();
 };
-
-function dateSlideCreate() {
-
-    function timestamp(str){
-        return new Date(str).getTime();
-    }
-
-    //create slider
-    noUiSlider.create(dateSlider, {
-        // Create two timestamps to define a range.
-        range: {
-            min: timestamp('1931'),
-            max: timestamp('2017')
-        },
-
-        // Two more timestamps indicate the handle starting positions.
-        start: [ timestamp('1930'), timestamp('2017') ],
-
-    });
-
-    var dateValues = [
-        document.getElementById('event-start'),
-        document.getElementById('event-end')
-    ];
-
-    dateSlider.noUiSlider.on('update', function( values, handle ) {
-        dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
-    });
-}

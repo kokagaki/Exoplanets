@@ -23,7 +23,6 @@ TimelineVis.prototype.initVis = function () {
     var vis = this;
 
     // SVG drawing area
-
     vis.margin = {top: 25, right: 40, bottom: 60, left: 60};
 
     vis.width = 600 - vis.margin.left - vis.margin.right;
@@ -212,4 +211,3 @@ function dateSlideCreate() {
         dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
     });
 }
-

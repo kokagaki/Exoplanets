@@ -217,6 +217,15 @@ hr {
     text-align: center;
 }
 
+.closeup {
+  color: white;
+  font-family: "Avenir Next Condensed";
+}
+
+#closeup-vis {
+  height: 303px;
+}
+
 /****************/
 /*  LINE CHART  */
 /****************/
