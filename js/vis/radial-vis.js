@@ -183,7 +183,7 @@ RadialChart.prototype.updateVis = function(){
           return d.key == "root"? "yellow" : vis.tempColorScale(d);
         })
         .on("mouseover", function(d) {
-          $(vis.planetSelect).trigger("selectionChanged", d);
+          $(vis.planetSelect).trigger("selectionChanged", d.key);
           return tip.show;
         })
         // .on("mouseover",tip.show)
