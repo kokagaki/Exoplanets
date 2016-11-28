@@ -10,13 +10,14 @@
 var tip;
 
 
-RadialChart = function(_parentElement, _data){
+RadialChart = function(_parentElement, _data, _planetSelect){
     this.parentElement = _parentElement;
     this.data = _data;
+    this.planetSelect = _planetSelect;
     this.nestedData = [];
     this.displayData = [];
     this.tempColors = ['#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15'];
-    this.orbitRunning;
+    // this.orbitRunning;
 
     this.initVis();
 };
@@ -30,10 +31,10 @@ RadialChart.prototype.initVis = function(){
     var vis = this;
 
     // * TO-DO *
-    vis.margin = { top: 200, right: 25, bottom: 200, left: 25};
+    vis.margin = { top: 0, right: 25, bottom: 0, left: 25};
 
-    vis.width = 600 - vis.margin.left - vis.margin.right,
-        vis.height = 600 - vis.margin.top - vis.margin.bottom;
+    vis.width = 600 - vis.margin.left - vis.margin.right;
+    vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
     vis.svg = d3.select(vis.parentElement.selector).append("svg")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
@@ -60,7 +61,8 @@ RadialChart.prototype.initVis = function(){
         .attr("transform","translate(0,-250)")
         .attr("class", "legend");
 
-    vis.ls_w = 20, vis.ls_h = 20;
+    vis.ls_w = 20;
+    vis.ls_h = 20;
 
     vis.legend.append("rect")
         .attr("x", 0)
@@ -75,12 +77,12 @@ RadialChart.prototype.initVis = function(){
         .attr("x", 30)
         .attr("y", function(d, i){ return vis.height - (i*vis.ls_h) - vis.ls_h - 4;})
         .text(function(d, i){
-            if (i == 0) {
+            if (i === 0) {
                 return "Cooler";
             } else if (i == vis.tempColors.length - 1) {
                 return "Hotter";
             } else {
-                return ""
+                return "";
             }
         })
         .attr("fill", "white");
@@ -154,9 +156,11 @@ RadialChart.prototype.updateVis = function(){
         })
         .nodes(vis.displayData)
         .orbitSize(function(d) {
-            return vis.orbitScale(d.radius)})
+            return vis.orbitScale( d.radius);
+          })
         .revolution(function(d) {
-            return 1 / d.period})
+            return 1 / d.period;
+          })
         .speed(15);
 
     vis.svg
@@ -168,16 +172,21 @@ RadialChart.prototype.updateVis = function(){
         .attr("id", function(d){
             return d.key;
         })
-        .attr("transform", function(d) {return "translate(" +d.x +"," + d.y+")"});
+        .attr("transform", function(d) { return "translate(" +d.x +"," + d.y+")"; });
 
     d3.selectAll("g.node")
         .append("circle")
         .attr("r", function(d) {
-
-            return d.key == "root"? 10 : vis.radiusScale(d.radius)})
+          return d.key == "root"? 10 : vis.radiusScale(d.radius);
+        })
         .style("fill", function(d) {
-            return d.key == "root"? "yellow" : vis.tempColorScale(d)})
-        .on("mouseover",tip.show)
+          return d.key == "root"? "yellow" : vis.tempColorScale(d);
+        })
+        .on("mouseover", function(d) {
+          $(vis.planetSelect).trigger("selectionChanged", d);
+          return tip.show;
+        })
+        // .on("mouseover",tip.show)
         .on("mouseout", tip.hide);
 
     d3.select("g.viz")
@@ -186,9 +195,9 @@ RadialChart.prototype.updateVis = function(){
         .enter()
         .insert("circle", "g")
         .attr("class", "ring")
-        .attr("r", function(d) {return d.r})
-        .attr("cx", function(d) {return d.x})
-        .attr("cy", function(d) {return d.y});
+        .attr("r", function(d) { return d.r; })
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
 
     d3.select("g.viz")
         .selectAll("circle.ring")
@@ -208,13 +217,13 @@ RadialChart.prototype.updateVis = function(){
         .attr("class", "ring");
 
     d3.selectAll("circle.ring")
-        .attr("r", function(d) {return d.r})
-        .attr("cx", function(d) {return d.x})
-        .attr("cy", function(d) {return d.y});
+        .attr("r", function(d) { return d.r; })
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
 
     vis.orbit.on("tick", function() {
         d3.selectAll("g.node")
-            .attr("transform", function(d) {return "translate(" +d.x +"," + d.y+")"});
+            .attr("transform", function(d) { return "translate(" +d.x +"," + d.y+")"; });
 
     });
 
@@ -247,13 +256,11 @@ RadialChart.prototype.getHabitablePlanets = function(){
 
         var id = d.key;
 
-        return (habitableIDs.indexOf(id) != -1)
+        return (habitableIDs.indexOf(id) != -1);
 
     });
 
-
     return habitablePlanets;
-
 
 };
 
@@ -274,17 +281,17 @@ RadialChart.prototype.generateTooltips = function() {
 
     vis.svg.call(tip);
 
-}
+};
 
 RadialChart.prototype.tempColorScale = function(planet) {
     var vis = this;
 
     var maxTemp = d3.max(vis.displayData, function(d) {
-        return d.temp
+        return d.temp;
     });
 
     var minTemp = d3.min(vis.displayData, function(d) {
-        return d.temp
+        return d.temp;
     });
 
     // get difference between max temp and min temp and programmatically
@@ -304,7 +311,7 @@ RadialChart.prototype.tempColorScale = function(planet) {
         return vis.tempColors[4];
     }
 
-}
+};
 
 // function to start and stop orbit based on current status
 RadialChart.prototype.startStopVis = function() {
@@ -336,4 +343,4 @@ RadialChart.prototype.tooltipString = function(planet) {
     return string;
 
 
-}
+};

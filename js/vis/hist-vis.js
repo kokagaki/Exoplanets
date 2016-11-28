@@ -111,7 +111,7 @@ HistVis.prototype.wrangleData = function() {
     }
 
     vis.nonNullData = vis.catData.filter(function(d){
-        return (d != 0 && d < 10000);
+        return (d !== 0 && d < 10000);
     });
 
     vis.displayData = vis.nonNullData;
@@ -137,7 +137,7 @@ HistVis.prototype.updateVisualization = function () {
 
 
     vis.bar = vis.svg.selectAll(".bar")
-        .data(vis.bins, function(d){return d.x});
+        .data(vis.bins, function(d){ return d.x; });
 
     vis.bar
         .enter().append("g")
@@ -148,7 +148,7 @@ HistVis.prototype.updateVisualization = function () {
         .attr("transform", function(d) { return "translate(" + vis.xScale(d.x) + "," + vis.yScale(d.y) + ")"; })
         .transition()
         .duration(1000)
-        .attr("height", function(d) { return vis.height - vis.yScale(d.y); });;
+        .attr("height", function(d) { return vis.height - vis.yScale(d.y); });
 
     vis.bar.exit().remove();
 
@@ -163,4 +163,4 @@ HistVis.prototype.updateVisualization = function () {
         .call(vis.xAxis);
 
 
-}
+};
