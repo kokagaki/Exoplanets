@@ -41,7 +41,7 @@ CloseUp.prototype.initVis = function () {
     vis.scene.add(light);
 
     // Add skin
-    vis.material.map = THREE.ImageUtils.loadTexture('img/skins/Planet_2_d.png');
+    vis.material.map = THREE.ImageUtils.loadTexture('img/skins/Earth.jpg');
 
     vis.camera.position.z = 1;
 
