@@ -13,6 +13,7 @@ var formatDate = d3.time.format("%Y");
 
 //slider
 var dateSlider = document.getElementById('slider-area');
+//var dateSlider = $("#slider-area");
 dateSlideCreate();
 /*
  * Initialize visualization (static content; e.g. SVG area, axes, brush component)
@@ -211,3 +212,4 @@ function dateSlideCreate() {
         dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
     });
 }
+
