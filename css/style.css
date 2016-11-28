@@ -95,6 +95,12 @@ hr {
     padding-right: 20%;
 }
 
+#earth_section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 800px;
+}
+
 #earth_pic {
     width: 350px;
     display: block;
