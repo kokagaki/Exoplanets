@@ -6,7 +6,7 @@ TimelineVis = function(_parentElement, _parentData){
     this.parentData = _parentData;
 
     this.initVis();
-}
+};
 
 // Date parser (https://github.com/mbostock/d3/wiki/Time-Formatting)
 var formatDate = d3.time.format("%Y");
@@ -50,7 +50,7 @@ TimelineVis.prototype.initVis = function () {
 
 
 // planet data
-    vis.data;
+    // vis.data;
 
 
 //d3 tip
@@ -73,7 +73,7 @@ TimelineVis.prototype.initVis = function () {
     // Initialize data
     vis.loadData();
 
-}
+};
 
 TimelineVis.prototype.loadData = function () {
     var vis = this;
@@ -103,7 +103,7 @@ TimelineVis.prototype.loadData = function () {
 
     // Draw the visualization for the first time
     vis.updateVisualization();
-}
+};
 
 TimelineVis.prototype.updateVisualization = function () {
     var vis = this;
@@ -181,7 +181,7 @@ TimelineVis.prototype.updateVisualization = function () {
 
     //exit
     vis.tooltipCircle.exit().remove();
-}
+};
 
 function dateSlideCreate() {
 
