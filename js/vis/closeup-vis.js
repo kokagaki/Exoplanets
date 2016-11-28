@@ -100,9 +100,10 @@ CloseUp.prototype.updateVisualization = function() {
 CloseUp.prototype.updateSelection = function(selection) {
   var vis = this;
   console.log(selection);
+  $("#planetname").text(selection.key);
   $("#orbrad").text("Planetary Mass: " + selection.radius + "AU");
-  $("#radius").text("Planetary Radius:");
-  $("#period").text("Orbital Period: " + selection.period + " days");
-  $("#orbrad").text("Orbital Radius:");
+  $("#radius").text("Planetary Radius: ");
+  $("#period").text("Orbital Period: " + Math.round(selection.period) + " days");
+  $("#orbrad").text("Orbital Radius: ");
   vis.material.map = THREE.ImageUtils.loadTexture('img/skins/Planet_Wight_1600.jpg');
 };
