@@ -163,10 +163,6 @@ hr {
     padding-top: 50px;
 }
 
-.closeup {
-  margin-top: -150px;
-}
-
 #radial-chart {
     height: 800px;
 }
@@ -220,10 +216,16 @@ hr {
 .closeup {
   color: white;
   font-family: "Avenir Next Condensed";
+  margin-top: -150px;
 }
 
 #closeup-vis {
-  height: 303px;
+  height: 496px;
+  width: 496px;
+}
+
+#closeup-info {
+  padding-top: 100px;
 }
 
 /****************/
