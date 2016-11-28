@@ -39,7 +39,7 @@ CloseUp.prototype.initVis = function () {
     vis.scene.add(light);
 
     // Add skin
-    material.map = THREE.ImageUtils.loadTexture('img/skins/earthmap1k.jpg');
+    material.map = THREE.ImageUtils.loadTexture('img/skins/Planet_Wight_1600.jpg');
 
     vis.camera.position.z = 1;
 
