@@ -164,7 +164,7 @@ hr {
 }
 
 #closeup-vis {
-  
+
 }
 
 #radial-chart {
@@ -188,7 +188,7 @@ hr {
 .d3-tip {
     line-height: 1;
     padding: 12px;
-    background: rgba(200, 200, 200, 0.8);
+    background: rgba(200, 200, 200, 0.95);
     color: rgb(50,50,50);
     border-radius: 2px;
 }
@@ -200,7 +200,7 @@ hr {
     font-size: 10px;
     width: 100%;
     line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.9);
     content: "\25BC";
     position: absolute;
     text-align: center;
@@ -252,4 +252,3 @@ body {
     width: 300px;
     left: 38%;
 }
-
