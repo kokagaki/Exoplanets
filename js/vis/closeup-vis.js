@@ -67,25 +67,22 @@ CloseUp.prototype.loadData = function () {
     //nest data by year
     vis.nestedData = d3.nest()
         .key(function (d) {
-            return d.DiscoveryYear;
+            return d.PlanetIdentifier;
         })
-        .rollup(function (values) {
-            return values.length;
+        .rollup(function(values) {
+            return values;
         })
         .entries(vis.parentData);
 
-
-    // parse date of nested data
-    vis.nestedData.forEach(function (d) {
-        d.key = formatDate.parse(d.key);
-    });
 
     // (2) Sort data by day
     vis.nestedData.sort(function (a,b) {
         return a.key-b.key;
     });
 
-    vis.data = vis.nestedData;
+    // vis.data = vis.nestedData;
+
+    vis.data = vis.getHabitablePlanets();
 
     // Draw the visualization for the first time
     vis.updateVisualization();
@@ -99,11 +96,56 @@ CloseUp.prototype.updateVisualization = function() {
 
 CloseUp.prototype.updateSelection = function(selection) {
   var vis = this;
-  console.log(selection);
-  $("#planetname").text( selection.key );
-  $("#orbrad").text("Planetary Mass: " + selection.radius + "AU");
-  $("#radius").text("Planetary Radius: ");
-  $("#period").text("Orbital Period: " + Math.round(selection.period) + " days");
-  $("#orbrad").text("Orbital Radius: ");
-  vis.material.map = THREE.ImageUtils.loadTexture('img/skins/Planet_Wight_1600.jpg');
+
+  var planetData;
+  for (var i in vis.data) {
+    if (vis.data[i].key == selection) {
+      planetData = vis.data[i].values[0];
+      break;
+    }
+  }
+  console.log(vis.data);
+
+  if (selection !== "root") {
+    $("#planetname").text( selection );
+    $('#temperature').text("Temperature: " + Math.round(planetData.SurfaceTempK - 273.15)  + "C");
+    $("#mass").text("Planetary Mass: " + (planetData.PlanetaryMassJpt).toFixed(6) + " Jupiter masses");
+    $("#radius").text("Planetary Radius: " + planetData.RadiusJpt + " Jupiter radii");
+    $("#period").text("Orbital Period: " + Math.round(planetData.period) + " days");
+    $("#orbrad").text("Orbital Radius: " + planetData.SemiMajorAxisAU + "AU");
+    i = Math.round(Math.random() * 14);
+    vis.material.map = THREE.ImageUtils.loadTexture('img/skins/'+selection+'.jpg');
+  } else {
+    $("#planetname").text( "Generic Host Star" );
+  }
+};
+
+CloseUp.prototype.getHabitablePlanets = function(){
+
+    var vis = this;
+
+    // ID's of habitable planets
+    var habitableIDs = [
+        "Earth",
+        "Alpha Centauri B c",
+        "Gliese 667 C c",
+        "Kepler-442 b",
+        "Kepler-452 b",
+        "Wolf 1061 c",
+        "Kepler-1229 b",
+        "Kapteyn b",
+        "Kepler-62 f",
+        'Kepler-186 f'
+    ];
+
+    var habitablePlanets = vis.nestedData.filter(function(d){
+
+        var id = d.key;
+
+        return (habitableIDs.indexOf(id) != -1);
+
+    });
+
+    return habitablePlanets;
+
 };
