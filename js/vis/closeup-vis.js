@@ -100,7 +100,7 @@ CloseUp.prototype.updateVisualization = function() {
 CloseUp.prototype.updateSelection = function(selection) {
   var vis = this;
   console.log(selection);
-  $("#planetname").text(selection.key);
+  $("#planetname").text( selection.key );
   $("#orbrad").text("Planetary Mass: " + selection.radius + "AU");
   $("#radius").text("Planetary Radius: ");
   $("#period").text("Orbital Period: " + Math.round(selection.period) + " days");
