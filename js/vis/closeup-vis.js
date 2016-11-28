@@ -104,19 +104,37 @@ CloseUp.prototype.updateSelection = function(selection) {
       break;
     }
   }
-  console.log(vis.data);
+
+  vis.material.map = THREE.ImageUtils.loadTexture('img/skins/'+selection+'.jpg');
 
   if (selection !== "root") {
+
     $("#planetname").text( selection );
-    $('#temperature').text("Temperature: " + Math.round(planetData.SurfaceTempK - 273.15)  + "C");
-    $("#mass").text("Planetary Mass: " + (planetData.PlanetaryMassJpt).toFixed(6) + " Jupiter masses");
-    $("#radius").text("Planetary Radius: " + planetData.RadiusJpt + " Jupiter radii");
-    $("#period").text("Orbital Period: " + Math.round(planetData.period) + " days");
-    $("#orbrad").text("Orbital Radius: " + planetData.SemiMajorAxisAU + "AU");
-    i = Math.round(Math.random() * 14);
-    vis.material.map = THREE.ImageUtils.loadTexture('img/skins/'+selection+'.jpg');
+
+    if (planetData.SurfaceTempK) {
+      $('#temperature').text("Temperature: " + Math.round(planetData.SurfaceTempK - 273.15)  + "C");
+    }
+
+
+    $("#mass").text(
+      planetData.PlanetaryMassJpt ? "Planetary Mass: " + (planetData.PlanetaryMassJpt).toFixed(3) + " Jupiter masses" : ""
+    );
+
+    $("#radius").text(
+      planetData.RadiusJpt ? "Planetary Radius: " + (planetData.RadiusJpt).toFixed(3) + " Jupiter radii" : ""
+    );
+
+    $("#period").text(
+      planetData.period ? "Orbital Period: " + Math.round(planetData.period) + " days" : ""
+    );
+
+    $("#orbrad").text(
+      planetData.SemiMajorAxisAU ? "Orbital Radius: " + planetData.SemiMajorAxisAU.toFixed(3) + "AU" : ""
+    );
+
   } else {
     $("#planetname").text( "Generic Host Star" );
+    $(".closeuptext").text("");
   }
 };
 
