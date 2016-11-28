@@ -24,6 +24,8 @@ function loadData() {
 
         timelineChart = new TimelineVis($("#timeline-chart"),data);
 
+        closeUp = new CloseUp($("#closeup-vis"),data);
+
         histVis = new HistVis($("#hist-vis"),data);
 
         var button = document.getElementById('updateButton');
@@ -35,4 +37,3 @@ function loadData() {
 
 
 }
-

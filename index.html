@@ -40,20 +40,18 @@
 <!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
 <div class="parallax_container" data-parallax="scroll" data-image-src="img/universe.jpg"></div>
 
-<!-- Vis 1 -->
+<!-- Vis 1 ORBIT -->
 <div id="radial-chart" class="section vis1" onclick="radialChart.startStopVis()">
   <h3>Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
   <h3>Here's what they look like relative to their host stars.</h3>
 </div>
 
-<!-- Vis 3 -->
-<div id="-vis" class="section vis1">
-  <div class="col-md-offset-4 col-md-4">
-    Select an exoplanet to learn more
-  </div>
+<!-- CLOSE UP VIS -->
+<div id="closeup-vis" class="section">
+  <div class="col-md-offset-4 col-md-4"></div>
 </div>
 
-<!-- Vis 2 -->
+<!-- Vis 2 BAR GRAPHS -->
 <div id="hist-vis" class="section vis1">
   <div class="col-md-offset-4 col-md-4">
     <select class="form-control" id="hist-category" onchange="histVis.wrangleData()">
@@ -101,11 +99,11 @@
   <script src="js/lib/nouislider.js"></script>
   <script src="js/lib/three.min.js"></script>
 
-  <script src="js/main-2.js"></script>
   <script src="js/vis/radial-vis.js"></script>
   <script src="js/vis/timeline-vis.js"></script>
   <script src="js/vis/hist-vis.js"></script>
   <script src="js/vis/closeup-vis.js"></script>
+  <script src="js/main-2.js"></script>
 
 </body>
 

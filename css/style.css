@@ -155,24 +155,16 @@ hr {
     }
 }
 
-
-
-.vis1 {
-    text-align: center;
-    font-family: "Avenir Next Condensed";
-    font-size: 3em;
-    background-color: black;
-    padding-top: 200px;
-}
-
-
-
 .vis1 {
     text-align: center;
     font-family: "Avenir Next Condensed";
     font-size: 3em;
     background-color: black;
     padding-top: 50px;
+}
+
+#closeup-vis {
+  
 }
 
 #radial-chart {

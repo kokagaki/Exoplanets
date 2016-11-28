@@ -1,7 +1,7 @@
 /**
  * Created by bencmbrook on 11/27/16.
  */
-TimelineVis = function(_parentElement, _parentData){
+CloseUp = function(_parentElement, _parentData){
     this.parentElement = _parentElement;
     this.parentData = _parentData;
 
@@ -11,64 +11,54 @@ TimelineVis = function(_parentElement, _parentData){
 /*
  * Initialize visualization (static content; e.g. SVG area, axes, brush component)
  */
-TimelineVis.prototype.initVis = function () {
+CloseUp.prototype.initVis = function () {
     var vis = this;
 
     // SVG drawing area
-
     vis.margin = {top: 25, right: 40, bottom: 60, left: 60};
 
-    vis.width = 600 - vis.margin.left - vis.margin.right;
-    vis.height = 500 - vis.margin.top - vis.margin.bottom;
+    vis.width = vis.parentElement.width() - vis.margin.left - vis.margin.right;
+    vis.height = vis.parentElement.height() - vis.margin.top - vis.margin.bottom;
 
-    vis.svg = d3.select(vis.parentElement.selector).append("svg")
-        .attr("width", vis.width + vis.margin.left + vis.margin.right)
-        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+    // Set up canvas and WebGL renderer
+    vis.scene = new THREE.Scene();
+    vis.camera = new THREE.PerspectiveCamera( 75, vis.width/vis.height, 0.1, 1000 );
+    vis.renderer = new THREE.WebGLRenderer();
+    vis.renderer.setSize( vis.width, vis.height );
+    $(vis.parentElement.selector).append( vis.renderer.domElement );
 
-    // scales
-    vis.xScale = d3.time.scale()
-        .range([0, vis.width]);
-    vis.yScale = d3.scale.linear()
-        .range([vis.height, 0]);
+    // Add Sphere
+    var geometry  = new THREE.SphereGeometry(0.5, 32, 32);
+    var material  = new THREE.MeshPhongMaterial();
+    vis.earthMesh = new THREE.Mesh(geometry, material);
+    vis.scene.add(vis.earthMesh);
 
-    //axis
-    vis.xAxis = d3.svg.axis()
-        .scale(vis.xScale)
-        .tickFormat(d3.time.format("%Y"));
-    vis.yAxis = d3.svg.axis()
-        .scale(vis.yScale)
-        .orient("left");
+    // Add light
+    var light = new THREE.DirectionalLight( 0xffffff );
+    light.position.set( 1, 1, 2 ).normalize();
+    vis.scene.add(light);
 
+    // Add skin
+    material.map = THREE.ImageUtils.loadTexture('img/skins/earthmap1k.jpg');
 
-// planet data
-    // vis.data;
+    vis.camera.position.z = 1;
 
+    var render = function () {
+      requestAnimationFrame( render );
 
-//d3 tip
-    vis.tip = d3.tip()
-        .attr("class", "d3-tip")
-        .offset([-10, 0])
-        .html(function(d) {
-            return  "Planets Discovered in " + formatDate(d.key) + ": " + d.values;
-        });
+      vis.earthMesh.rotation.y  += 1/32 * 0.1;
 
-    vis.svg.call(vis.tip);
+      vis.renderer.render(vis.scene, vis.camera);
+    };
 
-    //define clipping
-    vis.svg.append("defs").append("clipPath")
-        .attr("id", "clip")
-        .append("rect")
-        .attr("width", vis.width)
-        .attr("height", vis.height);
+    render();
 
     // Initialize data
-    vis.loadData();
+    // vis.loadData();
 
 };
 
-TimelineVis.prototype.loadData = function () {
+CloseUp.prototype.loadData = function () {
     var vis = this;
 
     //nest data by year
@@ -98,7 +88,7 @@ TimelineVis.prototype.loadData = function () {
     vis.updateVisualization();
 };
 
-TimelineVis.prototype.updateVisualization = function () {
+CloseUp.prototype.updateVisualization = function () {
     var vis = this;
 
     //domain from slider
