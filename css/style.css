@@ -57,16 +57,23 @@ hr {
     min-height: 550px;
     background: transparent;
 }
-
 #billions {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 600px;
     color: white;
     background-color: black;
     text-align: center;
     font-size: 3em;
-    font-family: "Avenir Next Condensed";
 }
-
+#intro-text {
+    height: auto;
+    padding-bottom: 300px;
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    font-family: "Avenir Next";
+}
 #arewealone {
     text-align: center;
     font-size: 3em;
