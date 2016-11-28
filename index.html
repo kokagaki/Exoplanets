@@ -10,11 +10,23 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/rotate.css">
 </head>
 
 <body>
 
+
+
 <div id="billions" class="full_block"> <span style="font-size: 5em"> 200 billion </span><br> <span style="color: white"> planets in the observable universe</span></div>
+
+<div id="showoff">
+  <div id="container">
+    <canvas id="sphere" width="400" height="400"></canvas>
+    <div id="glow-shadows" class="earth"></div>
+    <canvas id="flights" width="400" height="400"></canvas>
+    <div id="locations"></div>
+  </div>
+</div>
 
 <!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
 <div class="parallax_container" data-parallax="scroll" data-image-src="img/galaxy.jpg"></div>
@@ -103,6 +115,13 @@
   <script src="js/vis/radial-vis.js"></script>
   <script src="js/vis/timeline-vis.js"></script>
   <script src="js/vis/hist-vis.js"></script>
+
+  <script type="text/javascript" src="plugins/sphere/requestanimationframe.polyfill.js"></script>
+  <script type="text/javascript" src="plugins/jquery/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="plugins/jquery.ui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/rotate/sphere-hacked.js"></script>
+  <script type="text/javascript" src="js/rotate/jquery.earth-3d.js"></script>
+  <script type="text/javascript" src="js/rotate/demo.js"></script>
 
   <script src="js/main-2.js"></script>
 
