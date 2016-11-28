@@ -76,8 +76,8 @@ hr {
 
 .section {
     background-color: black;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     height: 650px;
 }
 
@@ -163,8 +163,8 @@ hr {
     padding-top: 50px;
 }
 
-#closeup-vis {
-
+.closeup {
+  margin-top: -150px;
 }
 
 #radial-chart {

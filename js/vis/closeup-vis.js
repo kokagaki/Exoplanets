@@ -16,6 +16,9 @@ var formatDate = d3.time.format("%Y");
 CloseUp.prototype.initVis = function () {
     var vis = this;
 
+    // SVG drawing area
+    vis.margin = {top: 25, right: 40, bottom: 60, left: 60};
+
     vis.width = vis.parentElement.width();
     vis.height = vis.parentElement.height();
 
@@ -28,8 +31,8 @@ CloseUp.prototype.initVis = function () {
 
     // Add Sphere
     var geometry  = new THREE.SphereGeometry(0.5, 32, 32);
-    var material  = new THREE.MeshPhongMaterial();
-    vis.earthMesh = new THREE.Mesh(geometry, material);
+    vis.material  = new THREE.MeshPhongMaterial();
+    vis.earthMesh = new THREE.Mesh(geometry, vis.material);
     vis.scene.add(vis.earthMesh);
 
     // Add light
@@ -38,9 +41,10 @@ CloseUp.prototype.initVis = function () {
     vis.scene.add(light);
 
     // Add skin
-    material.map = THREE.ImageUtils.loadTexture('img/skins/Planet_Wight_1600.jpg');
+    vis.material.map = THREE.ImageUtils.loadTexture('img/skins/Planet_2_d.png');
 
     vis.camera.position.z = 1;
+
 
     var render = function () {
       requestAnimationFrame( render );
@@ -48,6 +52,7 @@ CloseUp.prototype.initVis = function () {
       vis.earthMesh.rotation.y  += 1/32 * 0.1;
 
       vis.renderer.render(vis.scene, vis.camera);
+
     };
 
     render();
@@ -86,8 +91,18 @@ CloseUp.prototype.loadData = function () {
     vis.updateVisualization();
 };
 
-CloseUp.prototype.updateVisualization = function () {
+CloseUp.prototype.updateVisualization = function() {
     var vis = this;
 
 
+};
+
+CloseUp.prototype.updateSelection = function(selection) {
+  var vis = this;
+  console.log(selection);
+  $("#orbrad").text("Planetary Mass: " + selection.radius + "AU");
+  $("#radius").text("Planetary Radius:");
+  $("#period").text("Orbital Period: " + selection.period + " days");
+  $("#orbrad").text("Orbital Radius:");
+  vis.material.map = THREE.ImageUtils.loadTexture('img/skins/Planet_Wight_1600.jpg');
 };

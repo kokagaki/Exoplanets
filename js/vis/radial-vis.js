@@ -10,9 +10,10 @@
 var tip;
 
 
-RadialChart = function(_parentElement, _data){
+RadialChart = function(_parentElement, _data, _planetSelect){
     this.parentElement = _parentElement;
     this.data = _data;
+    this.planetSelect = _planetSelect;
     this.nestedData = [];
     this.displayData = [];
     this.tempColors = ['#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15'];
@@ -30,7 +31,7 @@ RadialChart.prototype.initVis = function(){
     var vis = this;
 
     // * TO-DO *
-    vis.margin = { top: 200, right: 25, bottom: 200, left: 25};
+    vis.margin = { top: 0, right: 25, bottom: 0, left: 25};
 
     vis.width = 600 - vis.margin.left - vis.margin.right;
     vis.height = 600 - vis.margin.top - vis.margin.bottom;
@@ -181,7 +182,11 @@ RadialChart.prototype.updateVis = function(){
         .style("fill", function(d) {
           return d.key == "root"? "yellow" : vis.tempColorScale(d);
         })
-        .on("mouseover",tip.show)
+        .on("mouseover", function(d) {
+          $(vis.planetSelect).trigger("selectionChanged", d);
+          return tip.show;
+        })
+        // .on("mouseover",tip.show)
         .on("mouseout", tip.hide);
 
     d3.select("g.viz")
@@ -255,9 +260,7 @@ RadialChart.prototype.getHabitablePlanets = function(){
 
     });
 
-
     return habitablePlanets;
-
 
 };
 
