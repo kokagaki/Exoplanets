@@ -124,6 +124,14 @@ CloseUp.prototype.updateSelection = function(selection) {
       planetData.RadiusJpt ? "Planetary Radius: " + (planetData.RadiusJpt).toFixed(3) + " Jupiter radii" : ""
     );
 
+    if (planetData.RadiusJpt) {
+      var max = 0.15;
+      var scale = planetData.RadiusJpt / max;
+      vis.earthMesh.scale.x = scale;
+      vis.earthMesh.scale.y = scale;
+      vis.earthMesh.scale.z = scale;
+    }
+
     $("#period").text(
       planetData.period ? "Orbital Period: " + Math.round(planetData.period) + " days" : ""
     );
@@ -135,6 +143,9 @@ CloseUp.prototype.updateSelection = function(selection) {
   } else {
     $("#planetname").text( "Generic Host Star" );
     $(".closeuptext").text("");
+    vis.earthMesh.scale.x = 1;
+    vis.earthMesh.scale.y = 1;
+    vis.earthMesh.scale.z = 1;
   }
 };
 
