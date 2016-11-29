@@ -15,54 +15,77 @@
 
 <body>
 
-<div id="showoff">
-  <div id="container">
-    <canvas id="sphere" width="400" height="400"></canvas>
-    <div id="glow-shadows" class="earth"></div>
-    <canvas id="flights" width="400" height="400"></canvas>
-    <div id="locations"></div>
+<!-- intro: Earth Spinning -->
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/stars.jpg">
+  <div id="showoff">
+    <div id="container">
+      <canvas id="sphere" width="400" height="400"></canvas>
+      <div id="glow-shadows" class="earth"></div>
+      <canvas id="flights" width="400" height="400"></canvas>
+      <div id="locations"></div>
+    </div>
   </div>
 </div>
 
-<div id="billions" class="full_block"></div>
-
-<!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
-<div class="parallax_container" data-parallax="scroll" data-image-src="img/galaxy.jpg">
-  <div id="intro-text" class="full_block">There are <br><span style="font-size: 4em"> 200 billion </span><br> <span style="color: white"> planets in the observable universe</span></div>
-</div>
-
-<!-- Life on Earth -->
-<div class="section">
+<!-- Life on Earth Section -->
+<div id="earth_section">
   <img id="earth_pic" class="center-block" src="img/earth.jpg">
-  <div id="earth_content" class="text_content">life on earth is defined by the following attributes: <span style="color: white;"> availability of liquid water </span>, <span style="color: white;">suitable temperature range</span>, and <span style="color: white;">size</span>, which determines the composition of the planet and it's atmosphere. </div>
+  <div id="earth_content" class="text_content">Life on earth is defined by the following attributes:
+    <span style="color: white;"> availability of liquid water </span>,
+    <span style="color: white;">suitable temperature range</span>, and
+    <span style="color: white;">size</span>, which determines the composition of the planet and it's atmosphere.
+    <br><br>Centuries of space exploration have been dedicated to the search of a <span style="color: white;">new earth</span>,
+    that is, a planet with these characteristics in the <span style="color: white;">habitable zone</span>
+    of temperature ranges that support our definition of life.
+  </div>
 </div>
 
+<!-- Parallax: 200 billion planets: Is there a new Earth? Section-->
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/galaxy.jpg">
+  <div id="intro-text" class="full_block">There are <br><span style="font-size: 4em"> 200 billion </span>
+    <br> <span style="color: white"> planets in the observable universe</span><br><br>
+    Is there another Earth?</div>
+</div>
 
-<!-- Earth-like Planets -->
-<div class="section">
+<!-- Earth-like Planets Section-->
+<div id="earthlike_planets_section">
   <img id="earthlikes_pic" class="center-block" src="img/earthlikes.jpg">
-  <div id="earthlike_content" class="text_content"><span style="color: white;">"earth-like planets"</span> have the characteristics to support life.  To our knowledge, researches have proposed that there are approximately <span style="color: white;">4000</span> of these planets in the universe, each of which could host life.</div>
+  <div id="earthlike_content" class="text_content"><span style="color: white;">"earth-like planets"</span>
+    have the characteristics to support life.  To our knowledge, researches have proposed that there are
+    approximately <span style="color: white;">4000</span> of these planets in the universe, each of
+    which could host life.<br><br>
+    Let's take a look at these prospective planets that could potentially be our <span style="color: white;">'New Earth':</span></div>
 </div>
 
-<!-- Exploration -->
-<div class="section">
+<!-- Parallax: TENTATIVE VISUALIZATION -->
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/space.jpg">
+  <div class="text_content placeholder">[Visualization Here]</div>
+</div>
+
+<!-- Exploration: The 10 planets Section-->
+<div id="exploration_section">
   <img id="explore_pic" class="center-block" src="img/satellite.png">
-  <div id="explore_content" class="text_content"><span style="color: white;">exploration: </span>The scope of the universe is unimaginably big.  Because of this, few models are available for the specific study of the "earth-like planets".  We aim to visualize these planets to give perspective about the possibility of life.  </div>
+  <div id="explore_content" class="text_content"<span style="color: white">Exploration: </span>
+  The scope of the universe is unimaginably big.  Because of this, few models are available for
+  the specific study of all 4000 of these "earth-like planets".  However, scientists have honed in on
+  <span style="color: white">10 prospective planets</span> that could host life and serve as a new home.</div>
 </div>
 
-<!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
-<div class="parallax_container" data-parallax="scroll" data-image-src="img/universe.jpg"></div>
+<!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/universe.jpg"></div>-->
 
 <!-- Vis 1 ORBIT -->
-<div id="radial-chart" class="section vis1" onclick="radialChart.startStopVis()">
-  <h3>Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
-  <h3>Here's what they look like relative to their host stars.</h3>
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/vis12.jpg">
+  <div id="radial-chart" class="vis1" onclick="radialChart.startStopVis()">
+    <h3>Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
+    <h3>Here's what they look like relative to their host stars.</h3>
+  </div>
 </div>
 
 <!-- CLOSE UP VIS -->
 <div class="section closeup">
-  <div id="closeup-vis" class="col-md-offset-3 col-md-4"></div>
-  <div class="col-md-2">
+  <div id="closeup-vis" class="col-md-offset-3 col-md-6"></div>
+  <div id="closeup-info" class="col-md-3">
     <h3 id="planetname">Earth</h3>
     <h5 id="temperature" class="closeuptext">Temperature</h5>
     <h5 id="mass" class="closeuptext">Planetary Mass</h5>
@@ -85,8 +108,15 @@
   </div>
 </div>
 
-<!-- PHOTO FROM http://24.media.tumblr.com/tumblr_m5yb8znHZW1rra1j7o8_1280.jpg -->
-<div class="parallax_container" data-parallax="scroll" data-image-src="img/space.jpg"></div>
+<!-- Parallax: Can We Go there? -->
+<div class="parallax_container" data-parallax="scroll" data-image-src="img/nasa.jpg">
+  <div class="text_content placeholder">Can we go there?</div>
+</div>
+
+<!-- SPACE SHUTTLE VIS -->
+<div class="section">
+  <img id="resize_mock" src="img/mock.png">
+</div>
 
 <!-- Future of Space Exploration -->
 <div class="section">

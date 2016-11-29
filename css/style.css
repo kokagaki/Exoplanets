@@ -95,6 +95,12 @@ hr {
     padding-right: 20%;
 }
 
+#earth_section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 800px;
+}
+
 #earth_pic {
     width: 350px;
     display: block;
@@ -107,6 +113,12 @@ hr {
     padding-top: 40px;
 }
 
+#earthlike_planets_section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 800px;
+}
+
 
 #earthlikes_pic {
     width: 600px;
@@ -117,6 +129,11 @@ hr {
     padding-top: 50px;
 }
 
+#exploration_section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: 800px;
+}
 
 #explore_content {
     padding-top: 40px;
@@ -162,16 +179,24 @@ hr {
     }
 }
 
+.placeholder {
+    text-align: center;
+    padding-top: 400px;
+    color: white;
+}
+
+#resize_mock {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
 .vis1 {
     text-align: center;
     font-family: "Avenir Next Condensed";
     font-size: 3em;
-    background-color: black;
+    /*background-color: black;*/
     padding-top: 50px;
-}
-
-.closeup {
-  margin-top: -150px;
 }
 
 #radial-chart {
@@ -227,10 +252,16 @@ hr {
 .closeup {
   color: white;
   font-family: "Avenir Next Condensed";
+  margin-top: -150px;
 }
 
 #closeup-vis {
-  height: 303px;
+  height: 496px;
+  width: 496px;
+}
+
+#closeup-info {
+  padding-top: 100px;
 }
 
 /****************/
