@@ -13,9 +13,11 @@
 
 #showoff {
     padding-top: 200px;
-    padding-left: 400px;
-    float: left;
-    width: 49%;
+    /*padding-left: 400px;*/
+    /*float: left;*/
+    margin: auto;
+    width: 50%;
+    text-align: center;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
