@@ -72,12 +72,12 @@ hr {
     color: white;
     text-align: center;
     font-size: 3em;
-    font-family: "Avenir Next";
+    font-family: "Avenir";
 }
 #arewealone {
     text-align: center;
     font-size: 3em;
-    font-family: "Avenir Next Condensed";
+    font-family: "Avenir";
 
 }
 
@@ -90,7 +90,7 @@ hr {
 
 .text_content {
     font-size: 2em;
-    font-family: "Avenir Next Condensed";
+    font-family: "Avenir";
     padding-left: 20%;
     padding-right: 20%;
 }
@@ -301,4 +301,44 @@ body {
 #slider-area {
     width: 300px;
     left: 38%;
+}
+
+
+
+/****************/
+/*  Scrolling   */
+/****************/
+
+
+.no-touch #cd-vertical-nav {
+    /*fix the navigation*/
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+.no-touch #cd-vertical-nav a span {
+    float: right;
+    /*scale down navigation dots and labels*/
+    transform: scale(0.6);
+}
+
+.no-touch #cd-vertical-nav .cd-dot {
+    transform-origin: 50% 50%;
+}
+
+.no-touch #cd-vertical-nav .cd-label {
+    transform-origin: 100% 50%;
+}
+
+.no-touch #vertical-nav a:hover span {
+    /*scale up navigation dots and labels*/
+    transform: scale(1);
+}
+
+.no-touch #cd-vertical-nav a:hover .cd-label {
+    /*show labels*/
+    opacity: 1;
 }
