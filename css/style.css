@@ -95,6 +95,9 @@ hr {
     padding-right: 20%;
 }
 
+/* First 3D earth */
+
+
 #earth_section {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -199,10 +202,6 @@ hr {
     padding-top: 50px;
 }
 
-.closeup {
-  margin-top: -150px;
-}
-
 #radial-chart {
     height: 800px;
 }
@@ -256,10 +255,16 @@ hr {
 .closeup {
   color: white;
   font-family: "Avenir Next Condensed";
+  margin-top: 0;
 }
 
 #closeup-vis {
-  height: 303px;
+  height: 496px;
+  width: 496px;
+}
+
+#closeup-info {
+  padding-top: 100px;
 }
 
 /****************/
