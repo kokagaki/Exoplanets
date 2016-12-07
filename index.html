@@ -108,8 +108,18 @@
 
 <!-- Vis 2 BAR GRAPHS -->
 <div id="hist-vis" class="section vis1">
-  <div class="col-md-offset-4 col-md-4">
-    <select class="form-control" id="hist-category" onchange="histVis.wrangleData()">
+  <div class="col-md-offset-3 col-md-2">
+    <h5>Select X-Axis Category</h5>
+    <select class="form-control" id="scat-xCategory" onchange="histVis.wrangleData()">
+      <option value="PlanetaryMassJpt">Planetary Mass</option>
+      <option value="RadiusJpt">Planetary Radius</option>
+      <option value="PeriodDays">Orbital Period</option>
+      <option value="SemiMajorAxisAU">Orbital Radius</option>
+    </select>
+  </div>
+  <div class="col-md-offset-2 col-md-2">
+    <h5>Select Y-Axis Category</h5>
+    <select class="form-control" id="scat-yCategory" onchange="histVis.wrangleData()">
       <option value="PlanetaryMassJpt">Planetary Mass</option>
       <option value="RadiusJpt">Planetary Radius</option>
       <option value="PeriodDays">Orbital Period</option>
@@ -131,30 +141,30 @@
 
 <div id="chart-area" class="col-sm-7"> </div>
 
-  <!-- Load JS libraries -->
-  <script src="js/lib/jquery.min.js"></script>
-  <script src="js/lib/queue.min.js"></script>
-  <script src="js/lib/topojson.js"></script>
-  <script src="js/lib/d3.min.js"></script>
-  <script src="js/lib/d3.tip.js"></script>
-  <script src="js/lib/d3.layout.orbit.js"></script>
-  <script src="js/lib/bootstrap.min.js"></script>
-  <script src="js/lib/parallax.min.js"></script>
-  <script src="js/lib/three.min.js"></script>
-  <script src="js/lib/nouislider.min.js"></script>
+<!-- Load JS libraries -->
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/queue.min.js"></script>
+<script src="js/lib/topojson.js"></script>
+<script src="js/lib/d3.min.js"></script>
+<script src="js/lib/d3.tip.js"></script>
+<script src="js/lib/d3.layout.orbit.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/parallax.min.js"></script>
+<script src="js/lib/three.min.js"></script>
+<script src="js/lib/nouislider.min.js"></script>
 
-  <script src="js/vis/radial-vis.js"></script>
-  <script src="js/vis/timeline-vis.js"></script>
-  <script src="js/vis/hist-vis.js"></script>
-  <script src="js/vis/closeup-vis.js"></script>
-  <script src="js/main-2.js"></script>
+<script src="js/vis/radial-vis.js"></script>
+<script src="js/vis/timeline-vis.js"></script>
+<script src="js/vis/hist-vis.js"></script>
+<script src="js/vis/closeup-vis.js"></script>
+<script src="js/main-2.js"></script>
 
-  <script type="text/javascript" src="plugins/sphere/requestanimationframe.polyfill.js"></script>
-  <script type="text/javascript" src="plugins/jquery/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="plugins/jquery.ui/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="js/rotate/sphere-hacked.js"></script>
-  <script type="text/javascript" src="js/rotate/jquery.earth-3d.js"></script>
-  <script type="text/javascript" src="js/rotate/demo.js"></script>
+<script type="text/javascript" src="plugins/sphere/requestanimationframe.polyfill.js"></script>
+<script type="text/javascript" src="plugins/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/rotate/sphere-hacked.js"></script>
+<script type="text/javascript" src="js/rotate/jquery.earth-3d.js"></script>
+<script type="text/javascript" src="js/rotate/demo.js"></script>
 
 
 </body>
