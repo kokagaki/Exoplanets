@@ -11,39 +11,65 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/nouislider.min.css">
   <link rel="stylesheet" href="css/rotate.css">
+
 </head>
 
-<body>
+<!-- Vertical Nav -->
+<nav id="cd-vertical-nav">
+  <ul>
+    <li>
+      <a href="#section1" data-number="1">
+        <span class="cd-dot"></span>
+        <span class="cd-label">3D Model</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section2" data-number="2">
+        <span class="cd-dot"></span>
+        <span class="cd-label">Earth</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<a class="cd-nav-trigger cd-img-replace"><span></span></a>
+
 
 <!-- 200 billion planets: Is there a new Earth? Section-->
 <div id="intro-text" class="full_block"><span style="font-size: 4em"> 200 billion </span>
   <br>planets in the observable universe<br><br>
   <span style="color: gray">Is there another Earth?</span></div>
 
+
 <!-- intro: Earth Spinning -->
-<div class="parallax_container" data-parallax="scroll" data-image-src="img/stars.jpg">
-  <div id="showoff">
-    <div id="container">
-      <canvas id="sphere" width="400" height="400"></canvas>
-      <div id="glow-shadows" class="earth"></div>
-      <canvas id="flights" width="400" height="400"></canvas>
-      <div id="locations"></div>
+<section id="section1" class="cd-section">
+  <div class="parallax_container" data-parallax="scroll" data-image-src="img/stars.jpg">
+    <div id="showoff">
+      <div id="container">
+        <canvas id="sphere" width="400" height="400"></canvas>
+        <div id="glow-shadows" class="earth"></div>
+        <canvas id="flights" width="400" height="400"></canvas>
+        <div id="locations"></div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
 
 <!-- Life on Earth Section -->
-<div id="earth_section">
-  <img id="earth_pic" class="center-block" src="img/earth.jpg">
-  <div id="earth_content" class="text_content">Life on earth is defined by the following attributes:
-    <span style="color: white;"> availability of liquid water </span>,
-    <span style="color: white;">suitable temperature range</span>, and
-    <span style="color: white;">size</span>, which determines the composition of the planet and it's atmosphere.
-    <br><br>Centuries of space exploration have been dedicated to the search of a <span style="color: white;">new earth</span>,
-    that is, a planet with these characteristics in the <span style="color: white;">habitable zone</span>
-    of temperature ranges that support our definition of life.
+<section id="section2" class="cd-section">
+  <div id="earth_section">
+    <img id="earth_pic" class="center-block" src="img/earth.jpg">
+    <div id="earth_content" class="text_content">Life on earth is defined by the following attributes:
+      <span style="color: white;"> availability of liquid water </span>,
+      <span style="color: white;">suitable temperature range</span>, and
+      <span style="color: white;">size</span>, which determines the composition of the planet and it's atmosphere.
+      <br><br>Centuries of space exploration have been dedicated to the search of a <span style="color: white;">new earth</span>,
+      that is, a planet with these characteristics in the <span style="color: white;">habitable zone</span>
+      of temperature ranges that support our definition of life.
+    </div>
   </div>
-</div>
+</section>
+
 
 <!-- Earth-like Planets Section-->
 <div id="earthlike_planets_section">
@@ -55,17 +81,18 @@
   </div>
 </div>
 
+
 <!-- Future of Space Exploration -->
 <div class="section">
   <img id="future_pic" class="center-block" src="img/future.jpg">
   <div id="future_content" class="text_content"><span style="color: white;">the future: </span> the search for habitable planets is becoming a popular topic in space exploration.  With the advancements of modern technology, we are now discovering more exoplanets than ever.</div>
 </div>
 
+
 <!-- Vis 3 -->
 <div id="timeline-chart" class="section vis1">
   <button id="updateButton" class="btn bg-primary">Refresh</button>
   </br>
-
   </br>
 
   <div id="slider-area">
@@ -73,8 +100,8 @@
 
   <p id="event-start"></p>
   <p id="event-end"></p>
-
 </div>
+
 
 <!-- Exploration: The 10 planets Section-->
 <div id="exploration_section">
@@ -85,26 +112,32 @@
   <span style="color: white">10 prospective planets</span> that could host life and serve as a new home.</div>
 </div>
 
-<!-- Vis 1 ORBIT -->
+
 <div class="parallax_container" data-parallax="scroll" data-image-src="img/vis12.jpg">
-  <div id="radial-chart" class="vis1" onclick="radialChart.startStopVis()">
-    <h3>Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
-    <h3>Here's what they look like relative to their host stars.</h3>
+  <h3 class="text_content">Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
+  <h3 class="text_content">Here's what they look like relative to their host stars.</h3>
+
+
+  <!-- CLOSE UP VIS -->
+  <div class="section closeup col-md-6">
+    <div id="closeup-vis" class="col-md-6"></div> <!-- col-med-offset-3 -->
+    <div id="closeup-info" class="col-md-3">
+      <h3 id="planetname">Earth</h3>
+      <h5 id="temperature" class="closeuptext">Temperature</h5>
+      <h5 id="mass" class="closeuptext">Planetary Mass</h5>
+      <h5 id="radius" class="closeuptext">Planetary Radius</h5>
+      <h5 id="period" class="closeuptext">Orbital Period</h5>
+      <h5 id="orbrad" class="closeuptext">Orbital Radius</h5>
+    </div>
   </div>
+
+
+  <!-- Vis 1 ORBIT -->
+  <div id="radial-chart" class="vis1" onclick="radialChart.startStopVis()">
+  </div>
+
 </div>
 
-<!-- CLOSE UP VIS -->
-<div class="section closeup">
-  <div id="closeup-vis" class="col-md-offset-3 col-md-6"></div>
-  <div id="closeup-info" class="col-md-3">
-    <h3 id="planetname">Earth</h3>
-    <h5 id="temperature" class="closeuptext">Temperature</h5>
-    <h5 id="mass" class="closeuptext">Planetary Mass</h5>
-    <h5 id="radius" class="closeuptext">Planetary Radius</h5>
-    <h5 id="period" class="closeuptext">Orbital Period</h5>
-    <h5 id="orbrad" class="closeuptext">Orbital Radius</h5>
-  </div>
-</div>
 
 <!-- Vis 2 BAR GRAPHS -->
 <div id="hist-vis" class="section vis1">
@@ -119,14 +152,15 @@
   </div>
 </div>
 
-<!-- Parallax: Can We Go there? -->
+
+<!-- Can We Go there? -->
 <div class="text_content placeholder">Can we go there?</div>
+
 
 <!-- SPACE SHUTTLE VIS -->
 <div class="section">
   <img id="resize_mock" src="img/mock.png">
 </div>
-
 
 
 <div id="chart-area" class="col-sm-7"> </div>
@@ -148,6 +182,9 @@
   <script src="js/vis/hist-vis.js"></script>
   <script src="js/vis/closeup-vis.js"></script>
   <script src="js/main-2.js"></script>
+
+  <script src="js/scroll/modernizr.js"></script> <!-- Modernizr -->
+  <script src="js/scroll/scroll.js"></script> <!-- scroll -->
 
   <script type="text/javascript" src="plugins/sphere/requestanimationframe.polyfill.js"></script>
   <script type="text/javascript" src="plugins/jquery/jquery-1.7.2.min.js"></script>
