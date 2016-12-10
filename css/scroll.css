@@ -168,9 +168,10 @@ Main components
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
-  transform: scale(1);
+  transform: scale(1.3);
 }
 .no-touch #cd-vertical-nav a:hover .cd-label {
+  font-family: Avenir;
   opacity: 1;
 }
 .no-touch #cd-vertical-nav a.is-selected .cd-dot {
@@ -183,7 +184,7 @@ Main components
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background-color: #d88683;
+  background-color: white;
   -webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
   -moz-transition: -moz-transform 0.2s, background-color 0.5s;
   transition: transform 0.2s, background-color 0.5s;

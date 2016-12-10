@@ -23,13 +23,25 @@
     <li>
       <a href="#section1" data-number="1">
         <span class="cd-dot"></span>
-        <span class="cd-label">3D Model</span>
+        <span class="cd-label">Earth</span>
       </a>
     </li>
     <li>
       <a href="#section2" data-number="2">
         <span class="cd-dot"></span>
-        <span class="cd-label">Earth</span>
+        <span class="cd-label">Story</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section3" data-number="3">
+        <span class="cd-dot"></span>
+        <span class="cd-label">Discovered Exoplanets</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section4" data-number="4">
+        <span class="cd-dot"></span>
+        <span class="cd-label">Earth-Like Planets</span>
       </a>
     </li>
   </ul>
@@ -75,14 +87,14 @@
 
 
 <!-- Earth-like Planets Section-->
-<div id="earthlike_planets_section">
-  <img id="earthlikes_pic" class="center-block" src="img/earthlikes.jpg">
-  <div id="earthlike_content" class="text_content"><span style="color: white;">"earth-like planets"</span>
-    have the characteristics to support life.  To our knowledge, researches have proposed that there are
-    approximately <span style="color: white;">4000</span> of these planets in the universe, each of
-    which could host life.<br><br>
+  <div id="earthlike_planets_section">
+    <img id="earthlikes_pic" class="center-block" src="img/earthlikes.jpg">
+    <div id="earthlike_content" class="text_content"><span style="color: white;">"earth-like planets"</span>
+      have the characteristics to support life.  To our knowledge, researches have proposed that there are
+      approximately <span style="color: white;">4000</span> of these planets in the universe, each of
+      which could host life.<br><br>
+    </div>
   </div>
-</div>
 
 
 <!-- Future of Space Exploration -->
@@ -93,53 +105,56 @@
 
 
 <!-- Vis 3 -->
-<div id="timeline-chart" class="section vis1">
-  <button id="updateButton" class="btn bg-primary">Refresh</button>
-  </br>
-  </br>
+<section id="section3" class="cd-section">
+  <div id="timeline-chart" class="section vis1">
+    <button id="updateButton" class="btn bg-primary">Refresh</button>
+    </br>
+    </br>
 
-  <div id="slider-area">
+    <div id="slider-area">
+    </div>
+
+    <p id="event-start"></p>
+    <p id="event-end"></p>
   </div>
-
-  <p id="event-start"></p>
-  <p id="event-end"></p>
-</div>
+</section>
 
 
 <!-- Exploration: The 10 planets Section-->
-<div id="exploration_section">
-  <img id="explore_pic" class="center-block" src="img/satellite.png">
-  <div id="explore_content" class="text_content"<span style="color: white">Exploration: </span>
-  The scope of the universe is unimaginably big.  Because of this, few models are available for
-  the specific study of all 4000 of these "earth-like planets".  However, scientists have honed in on
-  <span style="color: white">10 prospective planets</span> that could host life and serve as a new home.</div>
-</div>
+  <div id="exploration_section">
+    <img id="explore_pic" class="center-block" src="img/satellite.png">
+    <div id="explore_content" class="text_content"<span style="color: white">Exploration: </span>
+    The scope of the universe is unimaginably big.  Because of this, few models are available for
+    the specific study of all 4000 of these "earth-like planets".  However, scientists have honed in on
+    <span style="color: white">10 prospective planets</span> that could host life and serve as a new home.</div>
+  </div>
 
 
-<div class="parallax_container" data-parallax="scroll" data-image-src="img/vis12.jpg">
-  <h3 class="text_content">Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
-  <h3 class="text_content">Here's what they look like relative to their host stars.</h3>
+<section id="section4" class="cd-section">
+  <div class="parallax_container" data-parallax="scroll" data-image-src="img/vis12.jpg">
+    <h3 class="text_content">Scientists have identified <span style="color: white;">ten</span> planets that are extremely likely to be habitable.</h3>
+    <h3 class="text_content">Here's what they look like relative to their host stars.</h3>
 
 
-  <!-- CLOSE UP VIS -->
-  <div class="section closeup col-md-6">
-    <div id="closeup-vis" class="col-md-6"></div> <!-- col-med-offset-3 -->
-    <div id="closeup-info" class="col-md-3">
-      <h3 id="planetname">Earth</h3>
-      <h5 id="temperature" class="closeuptext">Temperature</h5>
-      <h5 id="mass" class="closeuptext">Planetary Mass</h5>
-      <h5 id="radius" class="closeuptext">Planetary Radius</h5>
-      <h5 id="period" class="closeuptext">Orbital Period</h5>
-      <h5 id="orbrad" class="closeuptext">Orbital Radius</h5>
+    <!-- CLOSE UP VIS -->
+    <div class="section closeup col-md-6">
+      <div id="closeup-vis" class="col-md-6"></div> <!-- col-med-offset-3 -->
+      <div id="closeup-info" class="col-md-3">
+        <h3 id="planetname">Earth</h3>
+        <h5 id="temperature" class="closeuptext">Temperature</h5>
+        <h5 id="mass" class="closeuptext">Planetary Mass</h5>
+        <h5 id="radius" class="closeuptext">Planetary Radius</h5>
+        <h5 id="period" class="closeuptext">Orbital Period</h5>
+        <h5 id="orbrad" class="closeuptext">Orbital Radius</h5>
+      </div>
+    </div>
+
+
+    <!-- Vis 1 ORBIT -->
+    <div id="radial-chart" class="vis1" onclick="radialChart.startStopVis()">
     </div>
   </div>
 
-
-  <!-- Vis 1 ORBIT -->
-  <div id="radial-chart" class="vis1" onclick="radialChart.startStopVis()">
-  </div>
-
-</div>
 
 
 <!-- Vis 2 BAR GRAPHS -->
